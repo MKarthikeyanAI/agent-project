@@ -18,36 +18,34 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Agentic Coding Boilerplate",
-    template: "%s | Agentic Coding Boilerplate",
+    default: "WealthPath",
+    template: "%s | WealthPath",
   },
   description:
-    "Complete agentic coding boilerplate with authentication, database, AI integration, and modern tooling - perfect for building AI-powered applications and autonomous agents by Leon van Zyl",
+    "Personal finance and investment app to help you build wealth through structured investment strategies, portfolio tracking, and financial goal planning.",
   keywords: [
-    "Next.js",
-    "React",
-    "TypeScript",
-    "AI",
-    "OpenRouter",
-    "Boilerplate",
-    "Authentication",
-    "PostgreSQL",
+    "personal finance",
+    "investment tracker",
+    "portfolio management",
+    "financial goals",
+    "wealth building",
+    "stock portfolio",
+    "SIP calculator",
+    "AI financial advisor",
   ],
-  authors: [{ name: "Leon van Zyl" }],
-  creator: "Leon van Zyl",
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "Agentic Coding Boilerplate",
-    title: "Agentic Coding Boilerplate",
+    siteName: "WealthPath",
+    title: "WealthPath — Personal Finance & Investment",
     description:
-      "Complete agentic coding boilerplate with authentication, database, AI integration, and modern tooling",
+      "Track portfolios, set financial goals, and get AI-powered investment insights.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Agentic Coding Boilerplate",
+    title: "WealthPath",
     description:
-      "Complete agentic coding boilerplate with authentication, database, AI integration, and modern tooling",
+      "Track portfolios, set financial goals, and get AI-powered investment insights.",
   },
   robots: {
     index: true,
