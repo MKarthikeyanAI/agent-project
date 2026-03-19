@@ -95,10 +95,25 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SiteHeader />
-          <main id="main-content">{children}</main>
-          <SiteFooter />
-          <Toaster richColors position="top-right" />
+          <div className="relative min-h-screen overflow-x-hidden">
+            {/* Ambient background layers (purely visual). */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+            >
+              <div className="absolute -top-52 left-1/2 h-[44rem] w-[44rem] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
+              <div className="absolute -top-24 -left-20 h-[28rem] w-[28rem] rounded-full bg-chart-2/10 blur-3xl" />
+              <div className="absolute top-[46rem] -right-24 h-[34rem] w-[34rem] rounded-full bg-chart-4/10 blur-3xl" />
+              <div className="absolute inset-0 opacity-[0.035] [background-image:linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)] [background-size:56px_56px] bg-foreground" />
+            </div>
+
+            <SiteHeader />
+            <main id="main-content" className="relative">
+              {children}
+            </main>
+            <SiteFooter />
+            <Toaster richColors position="top-right" />
+          </div>
         </ThemeProvider>
       </body>
     </html>

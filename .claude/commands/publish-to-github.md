@@ -1,34 +1,50 @@
 ---
-description: Publish a feature from /specs to GitHub Issues and Projects
+description: Publish a feature from /specs (or the project root) to GitHub Issues and Projects
 ---
 
 # Publish Feature to GitHub
 
-This command publishes a feature from the /specs folder to GitHub, creating:
+This command publishes a feature to GitHub, creating:
 
 - An Epic issue containing the full requirements
 - Phase issues for each phase in the implementation plan (with task checklists)
+- Action-required items as individual bug/chore issues (when publishing from project root)
 - A GitHub Project to track progress
 - Labels for organization
-- A `github.md` file in the specs folder with all references
+- A `github.md` file with all references
 
 ## Prerequisites
 
 - The GitHub CLI (`gh`) must be authenticated: `gh auth status`
 - The GitHub CLI must have project scopes: Token scopes should include `project` and `read:project`. If missing, run: `gh auth refresh -s project,read:project`
-- A feature folder must exist in /specs with `requirements.md` and `implementation-plan.md`
+- Source docs must exist (see Source Modes below)
+
+## Source Modes
+
+This command supports two source modes. Detect automatically based on context:
+
+**Mode A — Project Root** (use when `requirements.md`, `implementation-plan.md`, and `action-required.md` exist in the project root)
+- Epic body → `requirements.md`
+- Phase issues → phases parsed from `implementation-plan.md` (only phases marked ⏳ Pending or 🔄 In Progress)
+- Action items → critical/high-priority items from `action-required.md` published as individual issues
+- Output file → `github.md` in project root
+
+**Mode B — Specs Folder** (use when the user specifies a `/specs/{feature-name}/` folder)
+- Epic body → `specs/{feature-name}/requirements.md`
+- Phase issues → all phases from `specs/{feature-name}/implementation-plan.md`
+- Output file → `specs/{feature-name}/github.md`
+
+If unclear which mode to use, ask the user: "Should I publish from the project root docs or from a /specs folder?"
 
 ## Instructions
 
 ### 1. Identify the Feature
 
-Look for the feature folder attached to the conversation or specified by the user.
-The folder should be at `/specs/{feature-name}/` and contain:
+**Mode A:** Feature name = the project name inferred from `package.json` or `CLAUDE.md`. Read `requirements.md` from the project root.
 
-- `requirements.md` - Feature requirements
-- `implementation-plan.md` - Task breakdown with phases
+**Mode B:** Look for the feature folder at `/specs/{feature-name}/` containing `requirements.md` and `implementation-plan.md`.
 
-If no folder is specified, ask the user which feature to publish.
+If no folder is specified for Mode B, ask the user which feature to publish.
 
 ### 2. Extract Feature Information
 

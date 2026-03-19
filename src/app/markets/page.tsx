@@ -37,7 +37,7 @@ interface PriceAlert {
 const SCREENER_LISTS: Record<string, { label: string; tickers: string[] }> = {
   "large-cap": {
     label: "Large-Cap Stocks",
-    tickers: ["AAPL", "MSFT", "GOOGL", "AMZN", "NVDA", "META", "TSLA", "BERKB", "JPM", "V"],
+    tickers: ["AAPL", "MSFT", "GOOGL", "AMZN", "NVDA", "META", "TSLA", "BRK-B", "JPM", "V"],
   },
   "etfs": {
     label: "Popular ETFs",

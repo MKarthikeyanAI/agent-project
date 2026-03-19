@@ -29,19 +29,22 @@ export function SiteHeader() {
       >
         Skip to main content
       </a>
-      <header className="border-b sticky top-0 z-40 bg-background/95 backdrop-blur-sm" role="banner">
+      <header
+        className="sticky top-0 z-40 border-b border-border/60 bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/50"
+        role="banner"
+      >
         <nav
           className="container mx-auto px-4 py-3 flex items-center justify-between gap-4"
           aria-label="Main navigation"
         >
           {/* Logo */}
           <Link
-            href="/dashboard"
+            href="/"
             className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors shrink-0"
-            aria-label="WealthPath — Go to Dashboard"
+            aria-label="WealthPath — Go to Home"
           >
             <div
-              className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10"
+              className="flex items-center justify-center w-8 h-8 rounded-xl bg-primary/10 ring-1 ring-primary/15"
               aria-hidden="true"
             >
               <TrendingUp className="h-5 w-5" />
